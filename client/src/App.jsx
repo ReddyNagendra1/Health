@@ -1,14 +1,20 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-
+import React from 'react';
+import "antd/dist/reset.css";
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import Login from './pages/login';
+import Register from './pages/register';
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
     <div>
-      Doctor Appointment Booking
+      <BrowserRouter>
+        <Routes>
+          <Route path='/login' element={<Login />} />
+          <Route path='/register' element={<Register />} />
+
+        </Routes>
+      </BrowserRouter>
     </div>
 
   )

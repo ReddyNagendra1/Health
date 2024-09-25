@@ -10,7 +10,7 @@ app.use(cors({ origin: "*" }));
 app.use(express.json());
 
 const uri = process.env.MONGODB_URL;
-console.log("MongoDB URL:", uri);
+// console.log("MongoDB URL:", uri);
 
 async function connectToDatabase() {
     try {
@@ -24,10 +24,7 @@ async function connectToDatabase() {
 
 connectToDatabase();
 
-// Define your routes here
-// For example:
-// app.use('/api/users', require('./routes/userRoutes'));
-// app.use('/api/appointments', require('./routes/appointmentRoutes'));
+
 
 app.listen(port, () => {
     console.log(`Server is running on http://localhost:${port}`);
