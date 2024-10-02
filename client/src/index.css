@@ -11,18 +11,20 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  background-color: #9D4E4F;
   /* border-radius: 0px; */
 }
 
 .authentication-form {
   width: 400px;
+  background-color: #52989B;
 }
 
 .authentication .card-title {
-  /* font-size: 1.5rem;
-    font-weight: bold;
-    background-color: rgb(42, 7, 29);
-    color: whitesmoke; */
+  font-size: 1.5rem;
+  font-weight: bold;
+  background-color: rgb(42, 7, 29);
+  color: whitesmoke;
 }
 
 .card {

@@ -4,13 +4,17 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 
 const app = express();
-const port = process.env.PORT || 5000;
+
+const userRoute = require('./routes/userRoute');
 
 app.use(cors({ origin: "*" }));
 app.use(express.json());
 
+app.use('/api/user', userRoute);
+
+const port = process.env.PORT || 5000;
+
 const uri = process.env.MONGODB_URL;
-// console.log("MongoDB URL:", uri);
 
 async function connectToDatabase() {
     try {
@@ -23,8 +27,6 @@ async function connectToDatabase() {
 }
 
 connectToDatabase();
-
-
 
 app.listen(port, () => {
     console.log(`Server is running on http://localhost:${port}`);
