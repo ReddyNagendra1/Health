@@ -13,8 +13,8 @@ function Login() {
             if (response.data.success) {
                 toast.success(response.data.message);
                 toast('Redirecting to home page');
-                localStorage.setItem('token', response.data.data); // Store token
-                navigate('/home'); // Redirect to home after successful login
+                localStorage.setItem('token', response.data.data); // Storing token
+                navigate('/home'); // Redirecting to home after successful login
             } else {
                 toast.error(response.data.message);
             }
