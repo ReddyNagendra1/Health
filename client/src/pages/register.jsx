@@ -9,11 +9,11 @@ function Register() {
 
     const onFinish = async (values) => {
         try {
-            const response = await axios.post('http://localhost:5000/api/user/register', values); // Adjust backend URL accordingly
+            const response = await axios.post('http://localhost:5000/api/user/register', values);
             if (response.data.success) {
                 toast.success(response.data.message);
                 toast('Redirecting to login page');
-                navigate('/login'); // Redirect to login
+                navigate('/login'); // Redirecting to login
             } else {
                 toast.error(response.data.message);
             }
