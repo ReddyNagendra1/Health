@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const userSchema = new mongoose.Schema({
     name: {
         type: String,
-        reqired: true
+        required: true
     },
     email: {
         type: String,
@@ -21,11 +21,11 @@ const userSchema = new mongoose.Schema({
         type: Boolean,
         default: true,
     },
-    seenNofication: {
+    seenNofications: {
         type: Array,
         default: [],
     },
-    unseenNofication: {
+    unseenNofications: {
         type: Array,
         default: [],
     }

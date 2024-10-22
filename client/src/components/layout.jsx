@@ -1,69 +1,109 @@
 import React from "react";
-import '../layout.css'
-// import { icons } from "antd/es/image/PreviewGroup";
-import { Link, useLocation } from 'react-router-dom'
+import '../layout.css';
+import { Link, Navigate, useLocation, useNavigate } from 'react-router-dom';
 import { useSelector } from "react-redux";
+import { Badge } from "antd";
+
+
 function Layout({ children }) {
+    const navigate = useNavigate();
     const location = useLocation();
     const { user } = useSelector((state) => state.user);
+    console.log(user);
     const userMenu = [
         {
             name: 'Home',
             path: '/',
-            icon: ''
-
+            icon: 'ri-home-2-line'
         },
         {
             name: 'Appointments',
             path: '/appointments',
-            icon: ''
+            icon: 'ri-file-list-line'
         },
         {
-            name: 'profile',
+            name: 'Profile',
             path: '/profile',
-            icon: ''
-        },
-        {
-            name: 'Logout',
-            path: 'Logout',
-            icon: '',
-        },
+            icon: 'ri-profile-line'
+        }
     ];
 
-    const menuToBeRendered = userMenu
+    const adminMenu = [
+        {
+            name: 'Home',
+            path: '/',
+            icon: 'ri-home-line'
+        },
+        {
+            name: 'Users',
+            path: '/admin/users',
+            icon: 'ri-user-line'
+        },
+        {
+            name: 'Doctors',
+            path: '/admin/doctors',
+            icon: 'ri-user-star-line'
+        },
+        {
+            name: 'Profile',
+            path: '/profile',
+            icon: 'ri-profile-line'
+        }
+    ];
+
+    const menuToBeRendered = user?.isAdmin ? adminMenu : userMenu;
 
     return (
         <div className="main">
             <div className="flexlayout">
+                {/* Sidebar Section */}
                 <div className="sidebar">
-                    <div className="user-name">
-                        <Link className="anchor" to="/profile">{user?.name}</Link>
+                    <div className="user-info">
+                        {/* Display User Image */}
+                        <img className="user-image" src={user?.profileImage || "/default-avatar.png"} alt="User Avatar" />
+                        {/* Display User Name */}
+                        <div className="user-name">
+                            <Link className="anchor" to="/profile">{user?.name || "Guest"}</Link>
+                        </div>
                     </div>
                     <div className="menu">
                         {menuToBeRendered.map((menu) => {
-                            const isActive = location.pathname === menu.path
-                            return (<div key={menu.path} className={`d-flex menu-item ${isActive && 'active-menu-item'}`}>
-                                <i className={menu.icon}></i>
-                                <Link to={menu.path}>{menu.name}</Link>
-                            </div>);
+                            const isActive = location.pathname === menu.path;
+                            return (
+                                <div key={menu.path} className={`d-flex menu-item ${isActive && 'active-menu-item'}`}>
+                                    <i className={menu.icon}></i>
+                                    <Link to={menu.path}>{menu.name}</Link>
+                                </div>
+                            );
                         })}
+                        <div key="logout" className={'d-flex menu-item'} onClick={() => {
+                            localStorage.clear()
+                            Navigate('/login')
+                        }}>
+                            <i className='ri-logout-circle-line'></i>
+                            <Link to='/login'>Logout</Link>
+                        </div>
                     </div>
                 </div>
+
+                {/* Main Content Section */}
                 <div className="content">
                     <div className="header">
-                        <div className="title">
-                            HealthCare
-                        </div>
+                        <div className="title">Health Care</div>
+                        <Badge count={user?.unseenNotifications.length} onClick={() => navigate('/notifications')}>
+                            {/* Notification Icon */}
+                            <i className="ri-notification-line header-icon"></i>
 
+                        </Badge>
+                        <Link className="anchor mx-3" to='/profile'>{user?.name}</Link>
                     </div>
                     <div className="body">
                         {children}
                     </div>
                 </div>
             </div>
-        </div >
-    )
+        </div>
+    );
 }
 
 export default Layout;
-

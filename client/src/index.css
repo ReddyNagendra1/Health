@@ -4,6 +4,20 @@
   font-family: "Poppins", sans-serif;
 }
 
+.ant-form-item {
+  margin: 10px 0;
+}
+
+.ant-picker-input input {
+  border: none;
+}
+
+.ant-picker {
+  height: 40px;
+  border-radius: 2px;
+  border: 1px solid gray;
+}
+
 /* authentication pages */
 
 .authentication {
@@ -46,6 +60,12 @@
   color: white !important;
 }
 
+.page-title {
+  font-size: 25px;
+  color: black;
+  font-weight: bold;
+}
+
 .card {
   box-shadow: 0 0 2px gray;
 }
@@ -72,6 +92,7 @@
   width: 100%;
   color: whitesmoke;
   font-size: 16px;
+  width: max-content;
 }
 
 .anchor {

@@ -43,7 +43,7 @@ function Register() {
                         <Input placeholder="Password" type="password" />
                     </Form.Item>
 
-                    <Button className="primary-button my-2" type="primary" htmlType="submit">
+                    <Button className="primary-button my-2 w-100" type="primary" htmlType="submit">
                         Register
                     </Button>
 

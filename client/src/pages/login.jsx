@@ -17,7 +17,7 @@ function Login() {
             if (response.data.success) {
                 toast.success(response.data.message);
                 toast('Redirecting to home page');
-                localStorage.setItem('token', response.data.data); // Storing token
+                localStorage.setItem('token', response.data.token); // Storing token
                 navigate('/home'); // Redirecting to home after successful login
             } else {
                 toast.error(response.data.message);
@@ -40,7 +40,7 @@ function Login() {
                         <Input placeholder="Password" type="password" />
                     </Form.Item>
 
-                    <Button className="primary-button my-2" type="primary" htmlType="submit">
+                    <Button className="primary-button my-2 w-100" type="primary" htmlType="submit">
                         Login
                     </Button>
 
