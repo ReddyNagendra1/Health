@@ -13,7 +13,7 @@ function Layout({ children }) {
     const userMenu = [
         {
             name: 'Home',
-            path: '/',
+            path: '/home',
             icon: 'ri-home-2-line'
         },
         {
@@ -22,16 +22,36 @@ function Layout({ children }) {
             icon: 'ri-file-list-line'
         },
         {
-            name: 'Profile',
-            path: '/profile',
-            icon: 'ri-profile-line'
+            name: "Apply Doctor",
+            path: "/apply-doctor",
+            icon: "ri-hospital-line",
         }
+
+
+    ];
+
+    const doctorMenu = [
+        {
+            name: "Home",
+            path: "/",
+            icon: "ri-home-line",
+        },
+        {
+            name: "Appointments",
+            path: "/doctor/appointments",
+            icon: "ri-file-list-line",
+        },
+        {
+            name: "Profile",
+            path: `/doctor/profile/${user?._id}`,
+            icon: "ri-user-line",
+        },
     ];
 
     const adminMenu = [
         {
             name: 'Home',
-            path: '/',
+            path: '/home',
             icon: 'ri-home-line'
         },
         {
@@ -51,8 +71,8 @@ function Layout({ children }) {
         }
     ];
 
-    const menuToBeRendered = user?.isAdmin ? adminMenu : userMenu;
-
+    const menuToBeRendered = user?.isAdmin ? adminMenu : user?.isDoctor ? doctorMenu : userMenu;
+    const role = user?.isAdmin ? "Admin" : user?.isDoctor ? "Doctor" : "User";
     return (
         <div className="main">
             <div className="flexlayout">
@@ -64,6 +84,7 @@ function Layout({ children }) {
                         {/* Display User Name */}
                         <div className="user-name">
                             <Link className="anchor" to="/profile">{user?.name || "Guest"}</Link>
+                            <h1 className="role">{role}</h1>
                         </div>
                     </div>
                     <div className="menu">

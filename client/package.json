@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "start": "BROWSER_ARGS=--disable-ipc-flooding-protection react-scripts start",
-    "dev": "vite",
+    "dev": "vite --debug --disable-ipc-flooding-protection",
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview"

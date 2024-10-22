@@ -70,6 +70,13 @@
     height: 82vh;
     width: 100%;
     padding: 15px;
+    overflow-x: scroll;
+}
+
+.role {
+    color: white;
+    font-size: 14px;
+    margin-top: -20px;
 }
 
 /* menu styling*/

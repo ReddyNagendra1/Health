@@ -95,6 +95,12 @@
   width: max-content;
 }
 
+p {
+  color: rgba(0, 0, 0, 0.673);
+  margin: 0;
+  padding: 0;
+}
+
 .anchor {
   color: black;
   font-size: 16px;
@@ -103,4 +109,8 @@
 
 .anchor:hover {
   text-decoration: underline;
+}
+
+.cursor-pointer {
+  cursor: pointer;
 }

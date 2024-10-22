@@ -14,3 +14,5 @@ export function useDebounceNavigation(delay = 300) {
 
     return debouncedNavigate;
 }
+
+export default useDebounceNavigation;
