@@ -1,0 +1,151 @@
+.main {
+    padding: 20px;
+    height: 100vh;
+}
+
+.flexlayout {
+    display: flex;
+    height: 100vh;
+}
+
+.sidebar {
+    background-color: #9D4E4F;
+    border-radius: 5px;
+    box-shadow: 0 0 2px gray;
+    margin-right: 20px;
+    min-height: 100%;
+    padding: 10px;
+    width: 300px;
+}
+
+
+.logo h1 {
+    font-size: 1 rem;
+    margin: 20px;
+    text-align: center;
+}
+
+
+.content {
+    width: 100%;
+    height: 100%;
+}
+
+.header {
+    background-color: #B3B3B3;
+    border-radius: 5px;
+    box-shadow: 0 0 2px gray;
+    margin-bottom: 20px;
+    height: 10vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header-icon {
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.user-info {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.user-image {
+    width: 80px;
+    height: 80px;
+    border-radius: 100%;
+    /* This ensures the image is round */
+    object-fit: round;
+    /* This ensures the image fits within the rounded frame */
+    border: 2px solid #fff;
+    /* Optional: Add a border for a cleaner look */
+}
+
+
+.user-name {
+    margin-top: 10px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.body {
+    background-color: #B3B3B3;
+    border-radius: 5px;
+    box-shadow: 0 0 2px gray;
+    height: 82vh;
+    width: 100%;
+    padding: 15px;
+    overflow-x: scroll;
+}
+
+.role {
+    color: white;
+    font-size: 14px;
+    margin-top: -20px;
+}
+
+/* menu styling*/
+
+.menu {
+    margin-top: 50px;
+    padding: 0 10px;
+}
+
+.menu-item {
+    margin-top: 30px;
+    width: 200px;
+}
+
+.menu-item a {
+    color: rgba(255, 255, 255, 0.775);
+    text-decoration: none;
+    font-size: 18px;
+}
+
+.menu-item i {
+    color: rgba(255, 255, 255, 0.775);
+    text-decoration: none;
+    font-size: 18px;
+    margin: 0 15px;
+}
+
+.active-menu-item {
+    color: white;
+    background-color: #5A3039;
+    padding: 10px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    transition: background-color 0.3s ease;
+}
+
+.active-menu-item a {
+    color: white;
+}
+
+.active-menu-item i {
+    color: white;
+}
+
+.title {
+    font-size: 30px;
+    color: black;
+    font-weight: bolder;
+    padding: 0 0 0 20px;
+}
+
+.header-action-icon {
+    font-size: 30px;
+    color: black !important;
+    cursor: pointer;
+    padding-left: 10px;
+}
+
+
+.ant-scroll-number-only-unit {
+    padding-right: 10px;
+    padding-bottom: -10px;
+}
