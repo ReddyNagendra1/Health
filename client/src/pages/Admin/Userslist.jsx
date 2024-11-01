@@ -5,6 +5,7 @@ import { showLoading, hideLoading } from '../../redux/alertSlice';
 import axios from 'axios';
 import { Table } from "antd";
 import moment from 'moment';
+import api from '../../config/api'
 
 function Userslist() {
     const [users, setUsers] = useState([]);

@@ -7,6 +7,7 @@ import { toast } from 'react-hot-toast';
 import axios from 'axios';
 import DoctorForm from "../components/DoctorForm";
 import moment from 'moment'
+import api from "../config/api";
 
 function ApplyDoctor() {
     const dispatch = useDispatch();

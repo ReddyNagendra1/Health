@@ -6,6 +6,7 @@ import { toast } from 'react-hot-toast';
 import axios from 'axios';
 import { Table } from "antd";
 import moment from 'moment';
+import api from '../../config/api'
 
 const DoctorsList = () => {
     const [doctors, setDoctors] = useState([]);

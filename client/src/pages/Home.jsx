@@ -6,6 +6,7 @@ import { hideLoading, showLoading } from "../redux/alertSlice";
 import { Col, Row } from "antd";
 import Layout from '../components/layout';
 import Doctor from "../components/Doctor";
+import api from "../config/api";
 
 const Home = () => {
     const navigate = useNavigate();

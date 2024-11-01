@@ -1,5 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import api from "../config/api";
 
 function Doctor({ doctor }) {
     const navigate = useNavigate();

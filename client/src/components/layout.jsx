@@ -3,7 +3,7 @@ import '../layout.css';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useSelector } from "react-redux";
 import { Badge } from "antd";
-
+import api from '../config/api'
 
 function Layout({ children }) {
     const { user } = useSelector((state) => state.user);

@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import axios from 'axios';
 import { showLoading, hideLoading } from "../redux/alertSlice";
 import { setUser } from "../redux/userSlice";
-
+import api from '../config/api'
 
 function ProtectedRoute(props) {
     const { user, reloadUser } = useSelector((state) => state.user)
