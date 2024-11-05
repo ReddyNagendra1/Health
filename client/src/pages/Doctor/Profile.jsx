@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { showLoading, hideLoading } from "../../redux/alertSlice";
 import { toast } from 'react-hot-toast';
-import axios from 'axios';
+// import axios from 'axios';
 import DoctorForm from "../../components/DoctorForm";
 import moment from 'moment';
 import api from '../../config/api'
@@ -27,7 +27,7 @@ function Profile() {
                 ] : [],
             };
 
-            const response = await axios.post(
+            const response = await api.post(
                 "/api/doctor/update-doctor-profile",
                 {
                     ...formattedValues,
@@ -59,8 +59,8 @@ function Profile() {
                 return;
             }
             dispatch(showLoading());
-            const response = await axios.post(
-                "http://localhost:5000/api/doctor/get-doctor-info-by-user-id",
+            const response = await api.post(
+                "/api/doctor/get-doctor-info-by-user-id",
                 { userId: user._id },
                 {
                     headers: {

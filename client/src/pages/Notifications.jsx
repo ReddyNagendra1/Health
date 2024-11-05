@@ -4,7 +4,7 @@ import { Tabs } from 'antd';
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { showLoading, hideLoading } from "../redux/alertSlice";
-import axios from 'axios';
+// import axios from 'axios';
 import toast from 'react-hot-toast';
 import { setUser } from "../redux/userSlice";
 import api from "../config/api";
@@ -17,7 +17,7 @@ function Notifications() {
     const markAllAsSeen = async () => {
         try {
             dispatch(showLoading());
-            const response = await axios.post('/api/user/mark-all-notifications-as-seen', { userId: user._id }, {
+            const response = await api.post('/api/user/mark-all-notifications-as-seen', { userId: user._id }, {
                 headers: {
                     Authorization: `Bearer ${localStorage.getItem('token')}`,
                 }
@@ -38,7 +38,7 @@ function Notifications() {
     const deleteAll = async () => {
         try {
             dispatch(showLoading());
-            const response = await axios.post('/api/user/delete-all-notifications', { userId: user._id }, {
+            const response = await api.post('/api/user/delete-all-notifications', { userId: user._id }, {
                 headers: {
                     Authorization: `Bearer ${localStorage.getItem('token')}`,
                 }

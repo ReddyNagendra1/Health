@@ -2,7 +2,7 @@ import React from "react";
 import { Button, Form, Input, message } from 'antd';
 import { Link, useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from 'react-redux';
-import axios from 'axios';
+// import axios from 'axios';
 import { hideLoading, showLoading } from "../redux/alertSlice";
 import api from "../config/api";
 
@@ -13,7 +13,7 @@ const Login = () => {
     const onFinishHandler = async (values) => {
         try {
             dispatch(showLoading());
-            const res = await axios.post('/api/user/login', values);
+            const res = await api.post('/api/user/login', values);
             dispatch(hideLoading());
             if (res.data.success) {
                 localStorage.setItem('token', res.data.data);  // Store token directly since backend sends token as data

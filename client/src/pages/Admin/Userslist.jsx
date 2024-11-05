@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import Layout from "../../components/layout";
 import { useDispatch } from "react-redux";
 import { showLoading, hideLoading } from '../../redux/alertSlice';
-import axios from 'axios';
+// import axios from 'axios';
 import { Table } from "antd";
 import moment from 'moment';
 import api from '../../config/api'
@@ -34,7 +34,7 @@ function Userslist() {
     const changeUserStatus = async (record, status) => {
         try {
             dispatch(showLoading());
-            const response = await axios.post("http://localhost:5000/api/admin/change-user-account-status",
+            const response = await api.post("/api/admin/change-user-account-status",
                 { userId: record._id, status: status },
                 {
                     headers: {

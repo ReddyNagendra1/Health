@@ -4,7 +4,7 @@ import Layout from "../components/layout"
 import { useDispatch, useSelector } from "react-redux";
 import { showLoading, hideLoading } from "../redux/alertSlice";
 import { toast } from "react-hot-toast";
-import axios from "axios";
+// import axios from "axios";
 import { Navigate, useNavigate, useParams } from "react-router-dom";
 import DoctorForm from "../components/DoctorForm"
 import moment from "moment";
@@ -23,7 +23,7 @@ function BookAppointment() {
     const getDoctorData = async () => {
         try {
             dispatch(showLoading());
-            const response = await axios.post(
+            const response = await api.post(
                 "/api/doctor/get-doctor-info-by-id",
                 {
                     doctorId: params.doctorId,
@@ -47,7 +47,7 @@ function BookAppointment() {
     const checkAvailability = async () => {
         try {
             dispatch(showLoading());
-            const response = await axios.post(
+            const response = await api.post(
                 "/api/user/check-booking-avilability",
                 {
                     doctorId: params.doctorId,
@@ -76,7 +76,7 @@ function BookAppointment() {
         setIsAvailable(false);
         try {
             dispatch(showLoading());
-            const response = await axios.post(
+            const response = await api.post(
                 "/api/user/book-appointment",
                 {
                     doctorId: params.doctorId,

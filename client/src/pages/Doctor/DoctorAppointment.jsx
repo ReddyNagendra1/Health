@@ -3,7 +3,7 @@ import Layout from "../../components/layout";
 import { useDispatch } from "react-redux";
 import { showLoading, hideLoading } from "../../redux/alertSlice";
 import { toast } from 'react-hot-toast';
-import axios from 'axios';
+// import axios from 'axios';
 import { Table } from "antd";
 import moment from 'moment';
 import api from '../../config/api'
@@ -15,7 +15,7 @@ function DoctorAppointments() {
     const getAppointmentsData = async () => {
         try {
             dispatch(showLoading());
-            const response = await axios.get(
+            const response = await api.get(
                 "/api/doctor/get-appointments-by-doctor-id",
                 {
                     headers: {
@@ -41,7 +41,7 @@ function DoctorAppointments() {
     const changeAppointmentStatus = async (record, status) => {
         try {
             dispatch(showLoading());
-            const resposne = await axios.post(
+            const resposne = await api.post(
                 "/api/doctor/change-appointment-status",
                 { appointmentId: record._id, status: status },
                 {

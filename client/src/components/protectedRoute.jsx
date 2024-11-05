@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Navigate, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import axios from 'axios';
+// import axios from 'axios';
 import { showLoading, hideLoading } from "../redux/alertSlice";
 import { setUser } from "../redux/userSlice";
 import api from '../config/api'
@@ -18,7 +18,7 @@ function ProtectedRoute(props) {
         try {
             const token = localStorage.getItem("token");
             dispatch(showLoading());
-            const response = await axios.post('http://localhost:5000/api/user/get-user-info-by-id', { token }, {
+            const response = await api.post('/api/user/get-user-info-by-id', { token }, {
                 headers: {
                     Authorization: `Bearer ${token}`,
                 }

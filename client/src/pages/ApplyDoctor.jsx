@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { showLoading, hideLoading } from '../redux/alertSlice';
 import { toast } from 'react-hot-toast';
-import axios from 'axios';
+// import axios from 'axios';
 import DoctorForm from "../components/DoctorForm";
 import moment from 'moment'
 import api from "../config/api";
@@ -17,7 +17,7 @@ function ApplyDoctor() {
         // console.log("Success:", values);
         try {
             dispatch(showLoading());
-            const response = await axios.post('/api/user/apply-doctor-account', {
+            const response = await api.post('/api/user/apply-doctor-account', {
                 ...values, userId: user._id,
                 Availability: [
                     moment(values.Availability[0]).format("HH:mm"),

@@ -1,5 +1,5 @@
 import { React, useEffect, useState } from "react";
-import axios from 'axios';
+// import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { hideLoading, showLoading } from "../redux/alertSlice";
@@ -21,7 +21,7 @@ const Home = () => {
                 return;
             }
             dispatch(showLoading());
-            const response = await axios.get("http://localhost:5000/api/user/get-all-approved-doctors", {
+            const response = await api.get("/api/user/get-all-approved-doctors", {
                 headers: {
                     Authorization: `Bearer ${token}`,
                 },
