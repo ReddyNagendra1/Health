@@ -63,7 +63,7 @@ function Appointments() {
             render: (text, record) => (
                 <span>
                     {moment(record.date).format("DD-MM-YYYY")}{" "}
-                    {moment(record.time).format("HH:mm")}
+                    {moment(record.availability).format("HH:mm")}
                 </span>
             ),
         },

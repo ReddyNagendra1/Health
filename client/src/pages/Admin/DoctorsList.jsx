@@ -10,6 +10,7 @@ import api from '../../config/api'
 
 const DoctorsList = () => {
     const [doctors, setDoctors] = useState([]);
+    const [filterValue, setFilterValue] = useState('');
     const dispatch = useDispatch();
 
     const getDoctorsData = async () => {
@@ -125,6 +126,7 @@ const DoctorsList = () => {
     return (
         <Layout>
             <h1 className="text-2xl font-bold mb-4">Doctors List</h1>
+            <hr />
             <div className="bg-white rounded-lg shadow">
                 <Table
                     columns={columns}

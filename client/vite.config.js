@@ -14,8 +14,8 @@ export default defineConfig({
     },
   },
   build: {
-    // Increase the chunk size warning limit if the warning is not critical for your setup
-    chunkSizeWarningLimit: 1000, // Sets limit to 1000 kB to reduce warnings
+
+    chunkSizeWarningLimit: 1000,
 
     // Configure manual chunks to split large libraries
     rollupOptions: {
